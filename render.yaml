@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: react-grocery-list-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npx json-server --host 0.0.0.0 --port $PORT data/db.json
+    healthCheckPath: /items
+    envVars:
+      - key: NODE_VERSION
+        value: 20
